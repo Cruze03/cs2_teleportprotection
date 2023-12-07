@@ -13,12 +13,12 @@ namespace TeleportProtection;
 public class TeleportProtection : BasePlugin, IPluginConfig<TeleportProtectionConfig>
 {
     public override string ModuleName => "Teleport Protection";
-    public override string ModuleVersion => "1.0.0";
+    public override string ModuleVersion => "1.0.1";
     public override string ModuleAuthor => "Cruze";
     public override string ModuleDescription => "Gives player god mode for X seconds when they hit trigger_teleport";
     
-    public bool[] g_bGodmode = new bool[64];
-    public CounterStrikeSharp.API.Modules.Timers.Timer?[] g_hProtectionTimer = new CounterStrikeSharp.API.Modules.Timers.Timer[65];
+    public bool[] g_bGodmode = new bool[Server.MaxPlayers+1];
+    public CounterStrikeSharp.API.Modules.Timers.Timer?[] g_hProtectionTimer = new CounterStrikeSharp.API.Modules.Timers.Timer[Server.MaxPlayers+1];
     public CounterStrikeSharp.API.Modules.Timers.Timer? g_hSpawnProtectionTimer = null;
     public bool g_bSpawnProtection = true;
     public TeleportProtectionConfig Config { get; set; } = new();
