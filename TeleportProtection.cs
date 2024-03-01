@@ -13,12 +13,12 @@ namespace TeleportProtection;
 public class TeleportProtection : BasePlugin, IPluginConfig<TeleportProtectionConfig>
 {
     public override string ModuleName => "Teleport Protection";
-    public override string ModuleVersion => "1.0.1";
+    public override string ModuleVersion => "1.0.2";
     public override string ModuleAuthor => "Cruze";
     public override string ModuleDescription => "Gives player god mode for X seconds when they hit trigger_teleport";
     
-    public bool[] g_bGodmode = new bool[Server.MaxPlayers+1];
-    public CounterStrikeSharp.API.Modules.Timers.Timer?[] g_hProtectionTimer = new CounterStrikeSharp.API.Modules.Timers.Timer[Server.MaxPlayers+1];
+    public bool[] g_bGodmode = new bool[65];
+    public CounterStrikeSharp.API.Modules.Timers.Timer?[] g_hProtectionTimer = new CounterStrikeSharp.API.Modules.Timers.Timer[65];
     public CounterStrikeSharp.API.Modules.Timers.Timer? g_hSpawnProtectionTimer = null;
     public bool g_bSpawnProtection = true;
     public TeleportProtectionConfig Config { get; set; } = new();
@@ -156,7 +156,7 @@ public class TeleportProtection : BasePlugin, IPluginConfig<TeleportProtectionCo
     {
         text = text.Replace("{DEFAULT}", $"{ChatColors.Default}", StringComparison.OrdinalIgnoreCase);
         text = text.Replace("{WHITE}", $"{ChatColors.White}", StringComparison.OrdinalIgnoreCase);
-        text = text.Replace("{DARKRED}", $"{ChatColors.Darkred}", StringComparison.OrdinalIgnoreCase);
+        text = text.Replace("{DARKRED}", $"{ChatColors.DarkRed}", StringComparison.OrdinalIgnoreCase);
         text = text.Replace("{GREEN}", $"{ChatColors.Green}", StringComparison.OrdinalIgnoreCase);
         text = text.Replace("{LIGHTYELLOW}", $"{ChatColors.LightYellow}", StringComparison.OrdinalIgnoreCase);
         text = text.Replace("{LIGHTBLUE}", $"{ChatColors.LightBlue}", StringComparison.OrdinalIgnoreCase);
